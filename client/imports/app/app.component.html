@@ -1,1 +1,11 @@
-Hello World!
+<div>
+    <data-comp></data-comp>
+    <ul>
+        <li *ngFor=" let data of datalist | async ">
+            {{data.name}}
+            <p>{{data.id}}</p>
+            <p>{{data.meta}}</p>
+            <button (click)="removeData(data)">X</button>
+        </li>
+    </ul>
+</div>
