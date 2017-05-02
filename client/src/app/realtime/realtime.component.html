@@ -1,21 +1,43 @@
-<div class="row" style="padding-top:15.0vh;">
+<div class="center" style="padding-top:4.0vh;">
+  <div class="switch">
+    <label>
+      Remote Mode
+      <input type="checkbox" [(ngModel)]="cache_mode_bool">
+      <span class="lever"></span>
+      Local Cache Mode
+    </label>
+  </div>
+</div>
+
+<div class="row" style="padding-top:9.0vh;">
   <div class="col s12">
     <nav>
       <div class="nav-wrapper light-blue darken-1 white-text">
-        <form>
+        <!-- <form> -->
           <div class="input-field">
-            <input id="search" type="search" required>
+            <input [formControl]="queryField" id="search" type="search" required>
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
           </div>
-        </form>
+        <!-- </form> -->
       </div>
     </nav>
 
   </div>
 </div>
-<div *ngFor="let val of results_realtime" style="padding-left:4vw;">
-    <div class="chip">
-      {{val}}
-    </div>
+
+<div *ngIf="!cache_mode_bool">
+  <div *ngFor="let val of results_realtime" style="padding-left:4vw;">
+      <div class="chip">
+        {{val}}
+      </div>
+  </div>
+</div>
+
+<div *ngIf="cache_mode_bool">
+  <div *ngFor="let val of cache_results_realtime" style="padding-left:4vw;">
+      <div class="chip">
+        {{val}}
+      </div>
+  </div>
 </div>

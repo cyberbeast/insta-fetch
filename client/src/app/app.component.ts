@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InstafetchService } from './instafetch.service';
-import {Results} from './results';
+// import {Results} from './results';
 
 @Component({
   selector: 'app-root',
