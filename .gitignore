@@ -5,3 +5,5 @@ typings
 .idea
 build
 dist
+
+server/.babelrc
