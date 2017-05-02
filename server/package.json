@@ -10,9 +10,11 @@
   "author": "Sandesh Gade",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.4.0",
     "casual": "^1.5.12",
     "express": "^4.15.2",
-    "socket.io": "^1.7.3"
+    "socket.io": "^1.7.3",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
