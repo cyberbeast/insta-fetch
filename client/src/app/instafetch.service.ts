@@ -17,21 +17,25 @@ export class InstafetchService {
     console.log(this.apiUrl);
   }
 
-  getData_naive(): Promise<Results[]> {
+  getPredictions_promise(): Promise<any[]> {
     return Promise.resolve(RESULTS);
   }
 
-  getData_naive_SLOWLY(): Promise<Results[]> {
+  getPredictions_naive_SLOWLY(): Promise<any[]> {
     return new Promise(resolve => {
       // Simulate server latency with 2 second delay
-      setTimeout(() => resolve(this.getData_naive()), 2000);
+      setTimeout(() => resolve(this.getPredictions_promise()), 2000);
     });
   }
 
-  search_observables(term: string): Observable<Results[]> {
+  getPredictions_observable(term: string): Observable<any[]> {
     return this.http
                .get(this.apiUrl + '/?query=${term}')
-               .map(response=> response.json().data as Results[]);
+               .map(response=> response.json().data as any[]);
   }
+
+  // getPredictions_realtime(term: string): Observable<any[]>{
+  //
+  // }
 
 }

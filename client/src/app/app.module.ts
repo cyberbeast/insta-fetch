@@ -9,10 +9,16 @@ import 'hammerjs';
 import {InstafetchService} from './instafetch.service';
 
 import { AppComponent } from './app.component';
+import { PromiseComponent } from './promise/promise.component';
+import { ObservableComponent } from './observable/observable.component';
+import { RealtimeComponent } from './realtime/realtime.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PromiseComponent,
+    ObservableComponent,
+    RealtimeComponent
   ],
   imports: [
     BrowserModule,
