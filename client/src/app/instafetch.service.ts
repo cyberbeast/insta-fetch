@@ -15,6 +15,7 @@ export class InstafetchService {
   public apiUrl: String = AppSettings.API_URL;
   private socket;
   private socket_cache;
+  private socket_distributed_cache;
 
   constructor(private http: Http) {
     console.log(this.apiUrl);
@@ -66,7 +67,22 @@ export class InstafetchService {
     let observable = new Observable(observer => {
         this.socket_cache = io(this.apiUrl);
         this.socket_cache.on('sync_response', (data) => {
-          console.log("Cache Updated! " + data['query']);
+          console.log("Response received for " + data['query']);
+          observer.next(data);
+        });
+        return () => {
+          this.socket_cache.disconnect();
+        };
+      })
+      return observable;
+  }
+
+  cachesync_channel(): Observable<Result>{
+    let observable = new Observable(observer => {
+        // this.socket_cache = io(this.apiUrl);
+        this.socket_cache.on('cache_sync', (data) => {
+          console.log("Cache Updated!");
+          // console.log("Cache Updated! " + data['query']);
           observer.next(data);
         });
         return () => {

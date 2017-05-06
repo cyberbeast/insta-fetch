@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { PromiseComponent } from './promise/promise.component';
 import { ObservableComponent } from './observable/observable.component';
 import { RealtimeComponent } from './realtime/realtime.component';
+import { ReviewminerComponent } from './reviewminer/reviewminer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PromiseComponent,
     ObservableComponent,
-    RealtimeComponent
+    RealtimeComponent,
+    ReviewminerComponent
   ],
   imports: [
     BrowserModule,

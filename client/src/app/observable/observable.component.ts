@@ -19,7 +19,7 @@ export class ObservableComponent implements OnInit {
         console.log("OB Request: " + query);
         this.ifservice.getPredictions_observable(query)
                               .subscribe(result => this.results_observable = result);
-      })
+      });
   }
 
   // getPredictionsWithObservable(): void {

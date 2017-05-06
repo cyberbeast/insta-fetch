@@ -24,6 +24,7 @@ export class RealtimeComponent implements OnInit, OnDestroy {
 
   connection;
   cache_connection;
+  cache_sync_connection;
 
   constructor(private ifservice:InstafetchService, private pairsPipe: PairsPipe){
     this.queryField.valueChanges
@@ -75,6 +76,11 @@ export class RealtimeComponent implements OnInit, OnDestroy {
 
     this.cache_connection = this.ifservice.datasync_channel().subscribe(db => {
         this.cache_results_realtime = db['data'];
+        // this.cache_realtime.push(<Result>db);
+    });
+
+    this.cache_sync_connection = this.ifservice.cachesync_channel().subscribe(db => {
+        // this.cache_results_realtime = db['data'];
         this.cache_realtime.push(<Result>db);
     });
 
